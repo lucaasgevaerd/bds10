@@ -1,4 +1,5 @@
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
+import { hasAnyRoles } from "util/auth";
 import Form from "./Form";
 import List from "./List";
 
@@ -9,8 +10,13 @@ const Employee = () => {
             <Route path="/admin/employees" exact>
                 <List />
             </Route>
-            <Route path="/admin/employees/:employeeId">
-                <Form />
+            {hasAnyRoles(["ROLE_ADMIN"]) && (
+                <Route path="/admin/employees/:employeeId">
+                    <Form />
+                </Route>
+            )}
+            <Route path="/admin/employees/*" >
+                <Redirect to="/admin/employees" />
             </Route>
         </Switch>
     )

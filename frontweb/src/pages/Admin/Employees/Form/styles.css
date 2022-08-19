@@ -34,6 +34,18 @@
   font-weight: bold;
 }
 
+.department-crud-select__control {
+  border-color: #ced4da !important;
+}
+
+.department-crud-select__control:hover {
+  border-color: #ced4da !important;
+}
+
+.department-crud-select__placeholder {
+  color: #9e9e9e !important;
+}
+
 @media (min-width: 576px) {
 
   .employee-crud-form-card {
